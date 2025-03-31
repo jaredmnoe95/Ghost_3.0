@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost App 2.0</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Setup Screen -->
+    <div id="setup">
+        <h2>Welcome to Ghost App</h2>
+        <p>Enter your Code Name for secure access</p>
+        <input type="text" id="codeName" placeholder="Enter your code name" />
+        <button onclick="saveCodeName()">Next</button>
+    </div>
+
+    <!-- PIN Screen -->
+    <div id="pinScreen" style="display:none;">
+        <h2>Set your 4-Digit PIN</h2>
+        <input type="password" id="setPIN" maxlength="4" placeholder="Set 4-digit PIN" />
+        <button onclick="savePIN()">Save & Continue</button>
+    </div>
+
+    <!-- Main App UI -->
+    <div id="appUI" style="display:none;">
+        <h2 id="userTag">Ghost Access Granted</h2>
+
+        <div id="nav">
+            <button onclick="showTab('messaging')">Messages</button>
+            <button onclick="showTab('alerts')">Security Alerts</button>
+            <button onclick="showTab('search')">Private Search</button>
+        </div>
+
+        <div class="tab" id="messaging">
+            <h3>Encrypted Messaging</h3>
+            <textarea id="messageBox" placeholder="Enter encrypted message..."></textarea>
+            <button onclick="sendMessage()">Send</button>
+            <button class="nuke" onclick="nuclearPurge()">NUKE</button>
+        </div>
+
+        <div class="tab" id="alerts">
+            <h3>Ghost Security Notifications</h3>
+            <ul id="alertsLog">
+                <!-- Alerts will be added here -->
+            </ul>
+        </div>
+
+        <div class="tab" id="search">
+            <h3>Anonymous Web Search</h3>
+            <form target="_blank" action="https://duckduckgo.com/">
+                <input type="text" name="q" placeholder="Search DuckDuckGo..." />
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js" type="module"></script>
+</body>
+</html>
